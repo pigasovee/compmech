@@ -1,0 +1,9 @@
+{% load static %}
+<script type="text/javascript" src="{% static 'js/header_handlers.js' %}"></script>
+<div class="header-div-container">
+    <div class="header-div">
+        {% for item in menu_items %}
+            <div> {{ item.title }} </div>
+        {% endfor %}
+    </div>
+</div>
