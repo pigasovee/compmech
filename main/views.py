@@ -9,8 +9,10 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 # Create your views here.
 def homepage(request):
     template = loader.get_template('main/homepage.html')
+
     context = {
-        'menu_items': MenuItem.objects.filter(menu__title='main'),
+        'menu_1_items': MenuItem.objects.filter(menu__title='main1').order_by('weight'),
+        'menu_2_items': MenuItem.objects.filter(menu__title='main2').order_by('weight'),
         'title': 'Hello World!'
     }
     return HttpResponse(template.render(context, request))

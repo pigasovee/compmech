@@ -1,0 +1,10 @@
+{% for inner_item in menu_items %}
+    {% if inner_item.parent_item_id == menu_item.id %}
+        <ul>
+            <li>
+                {{ inner_item.title }}
+                {% include 'main/inner_item.html' with menu_item=inner_item menu_items=menu_items %}
+            </li>
+        </ul>
+    {% endif %}
+{% endfor %}

@@ -2,8 +2,31 @@
 <script type="text/javascript" src="{% static 'js/header_handlers.js' %}"></script>
 <div class="header-div-container">
     <div class="header-div">
-        {% for item in menu_items %}
-            <div> {{ item.title }} </div>
-        {% endfor %}
+        <div class="logo"> Logo </div>
+        <div class="title"> Сайт суперкафедры </div>
+        <div class="logo-5-100"> 5-100 </div>
+    </div>
+    <div class="menu-string">
+        <div class="menu-string-container">
+            <ul class="menu-1">
+                {% for menu_item in menu_1_items %}
+                    {% include 'main/menu_item.html' with menu_item=menu_item menu_items=menu_1_items %}
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="header-imade-container">
+            **Картинка**
+        </div>
+        <div class="menu-string-container">
+            <ul class="menu-2">
+                {% for menu_item in menu_2_items %}
+                    {% include 'main/menu_item.html' with menu_item=menu_item menu_items=menu_2_items %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="header-image"> Фотка ЮУрГУ </div>
+    <div class="menu-2-container">
+        menu 2 items
     </div>
 </div>

@@ -1,0 +1,6 @@
+{% if menu_item.parent_item == null %}
+    <li>
+        {{ menu_item.title }}
+        {% include 'main/inner_item.html' with menu_item=menu_item menu_items=menu_items %}
+    </li>
+{% endif %}
