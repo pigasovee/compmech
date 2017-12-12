@@ -18,6 +18,7 @@ class Menu(models.Model):
 
 class MenuItem(models.Model):
     title = models.CharField(default="", max_length=256, verbose_name="Заголовок")
+    url = models.CharField(default="", max_length=256, verbose_name="URL")
     menu = models.ForeignKey(Menu, verbose_name="Меню")
     parent_item = models.ForeignKey('MenuItem', verbose_name="Родительский элемент", blank=True, null=True)
     weight = models.IntegerField(verbose_name="Вес", default=0)

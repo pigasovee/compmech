@@ -16,3 +16,13 @@ def homepage(request):
         'title': 'Hello World!'
     }
     return HttpResponse(template.render(context, request))
+
+
+def page(request, url):
+    current_page = MenuItem.objects.get(url=url)
+    template = loader.get_template('main/page.html')
+
+    context = {
+        'title': current_page.title
+    }
+    return HttpResponse(template.render(context, request))

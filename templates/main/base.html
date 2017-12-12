@@ -3,9 +3,9 @@
 <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
 {% include 'main/header.html' %}
 <div class="page-content">
-{% block content %}
-    Нечего отображать.
-{% endblock %}
-{% block aditional_static %}
-{% endblock %}
+    {% block content %}
+        Нечего отображать.
+    {% endblock %}
+    {% block aditional_static %}
+    {% endblock %}
 </div>
