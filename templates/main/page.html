@@ -1,8 +1,10 @@
-{% extends 'main/base.html' %}
 {% block content %}
-<div class="homepage-container">
-    <p class="welcome">
-         {{ title }}
-    </p>
-</div>
+    <div class="page-container">
+        <div class="page-title">
+            {{ page.title }}
+        </div>
+        <div class="page-content">
+            {{ page.content }}
+        </div>
+    </div>
 {% endblock %}

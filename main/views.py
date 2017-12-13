@@ -18,11 +18,18 @@ def homepage(request):
     return HttpResponse(template.render(context, request))
 
 
-def page(request, url):
+def page_view(request, url):
     current_page = MenuItem.objects.get(url=url)
-    template = loader.get_template('main/page.html')
+    template = loader.get_template('main/menu_item_page.html')
+
+    pages = StaticPage.objects.filter(published=True, add_to__exact=current_page.id)
+    posts = Post.objects.filter(published=True, add_to__exact=current_page.id)
 
     context = {
-        'title': current_page.title
+        'title': current_page.title,
+        'menu_1_items': MenuItem.objects.filter(menu__title='main1').order_by('weight'),
+        'menu_2_items': MenuItem.objects.filter(menu__title='main2').order_by('weight'),
+        'pages': pages,
+        'posts': posts
     }
     return HttpResponse(template.render(context, request))

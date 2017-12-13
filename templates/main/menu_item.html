@@ -1,6 +1,6 @@
 {% if menu_item.parent_item == null %}
     <li>
-        <a href="{{ menu_item.url }}">{{ menu_item.title }}</a>
+        <a href="/{{ menu_item.url }}">{{ menu_item.title }}</a>
         {% include 'main/inner_item.html' with menu_item=menu_item menu_items=menu_items %}
     </li>
 {% endif %}

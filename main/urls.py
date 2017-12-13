@@ -18,5 +18,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.homepage, name='homepage'),
-    url(r'^(?P<url>\w+)/$', views.page, name='page'),
+    url(r'^(?P<url>\w+)/$', views.page_view, name='page_view'),
 ]

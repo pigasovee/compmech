@@ -84,11 +84,18 @@ class Discipline(models.Model):
 
 
 class Post(models.Model):
-    name = models.CharField(max_length=100)
     title = models.CharField(max_length=100, verbose_name="Заголовок")
     content = models.TextField(verbose_name="Контент")
-    images = models.ImageField()
-    files = models.FileField()
+    images = models.ImageField(blank=True)
+    files = models.FileField(blank=True)
+    published = models.BooleanField(default="False", verbose_name="Опубликовано")
+    add_to = models.ManyToManyField(MenuItem, verbose_name="Добавить в...")
+
+    def __str__(self):
+        return u"{}".format(self.title)
+
+    def __unicode__(self):
+        return u"{}".format(self.title)
 
 
 class Photo(models.Model):
